@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
     <title>Rad's Sports Network</title>
     <link rel="stylesheet" type="text/css" href="../CSS/bulma.css">
@@ -37,47 +36,32 @@
     </nav>
 </section>
 
+<section>
+    <div class="is-centered">
+        <h1 class="title has-text-centered is-1">
+            About
+        </h1>
+    </div>
+</section>
 
-<section class="hero is-fullheight">
-    <div class="hero-body">
-        <div class="container has-text-centered">
-            <div class="column is-4 is-offset-4">
-                <h3 class="title has-text-grey">Login</h3>
-                <p class="subtitle has-text-grey">Please login to customize your content</p>
-                <div class="box box-log-in">
-                    <figure class="avatar">
-                        <img src="../IMG/user-login-icon.svg">
-                    </figure>
-                    <form>
-                        <div class="field">
-                            <div class="control">
-                                <input class="input is-medium" type="email" placeholder="Your Email" autofocus="">
-                            </div>
-                        </div>
+<section>
+    <div class="content-wrapper">
+        <div class="has-text-centered">
+            <h1>
+                Thank you so much for visiting RSPN. There is much more coming soon. I currently am working with the
+                <a href="https://www.mysportsfeeds.com/" target="_blank">My Sports Feed</a> API to get live sports data. This is just the
+                front end and what it will look like when it's finished. However it will use live sports data and have updated news
+                and articles to give you all of the NBA news you could ever need. Please check out and follow my Twitter Feed to stay up to date on all things RSPN
+            </h1>
+            <br>
+            <br>
+            <br>
 
-                        <div class="field">
-                            <div class="control">
-                                <input class="input is-medium" type="password" placeholder="Your Password">
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label class="checkbox">
-                                <input type="checkbox">
-                                Remember me
-                            </label>
-                        </div>
-                        <a class="button is-block is-info is-large is-danger" onclick="ComingSoon()">Login</a>
-                    </form>
-                </div>
-                <p class="has-text-grey">
-                    <a href="#" onclick="ComingSoon()">Sign Up</a> &nbsp;·&nbsp;
-                    <a href="#" onclick="ComingSoon()">Forgot Password</a> &nbsp;·&nbsp;
-                    <a href="#" onclick="ComingSoon()">Need Help?</a>
-                </p>
-            </div>
+
         </div>
     </div>
 </section>
+
 
 <footer class="footer">
     <div class="container">
@@ -110,11 +94,17 @@
 </footer>
 
 
-<script>
-    function ComingSoon() {
-        window.alert("Log in and Register are coming soon. Thanks for your patience while I am learning node.js and vue.js");
-    }
-</script>
 </body>
 
 </html>
+<!--
+Twitter attempt to resize
+<script>
+    change = document.getElementsByTagName("TWITTERWIDGET");
+
+    for (var iCount = 0; iCount < change.length; iCount++)
+    {
+        //change[iCount].style.width = "100%";
+        document.getElementById("twitter-widget-" +iCount).style.width="100%";
+    }
+</script>-->

@@ -111,6 +111,10 @@ tr{
 
 }
 
+table{
+    min-width: 357.317px;
+}
+
 .score-grid{
 
     align-content: center;
@@ -118,12 +122,17 @@ tr{
 }
 
 section{
-    padding-top: 35px;
+    padding-bottom: 35px;
 }
 
 .score-child{
     max-width: 359px;
 
+}
+
+.twitter{
+    width: 50%;
+    margin: auto;
 }
 
 
@@ -182,6 +191,16 @@ p.subtitle {
 
 .blog-post{
     text-align: left;
+}
+
+footer a i{
+   text-decoration: none;
+    color: black;
+}
+
+.insta{
+    width: 75%;
+    margin-left: auto;
 }
 
 
