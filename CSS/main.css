@@ -115,10 +115,23 @@ table{
     min-width: 357.317px;
 }
 
+.ui-datepicker table{
+    min-width: 0;
+}
+
 .score-grid{
 
     align-content: center;
 
+}
+
+.team-name{
+    font-size: 12px;
+}
+
+.gameStatus{
+    font-size: 10px;
+    color: red; !important;
 }
 
 section{
@@ -126,8 +139,20 @@ section{
 }
 
 .score-child{
-    max-width: 359px;
+    max-width: 380px;
+    min-width: 380px;
 
+}
+
+.dates{
+    justify-content: center;
+}
+
+.date p{
+    padding-top: 0;
+}
+.date {
+    font-size: 14px;
 }
 
 .twitter{
