@@ -92,15 +92,15 @@
         onSelect: function(dateText, inst) {
             var dateAsObject = $(this).datepicker( 'getDate' ); //the getDate method
             console.log(dateAsObject);
-            var currentDay = new Date(dateText)
-            var minusOneDay = currentDay;
-            minusOneDay.setDate(minusOneDay.getDate()-1);
-            var minusTwoDay = currentDay;
+            var currentDay = new Date(dateText);
+            /*var minusOneDay;
+            minusOneDay.setDate(dateAsObject.getDate()-1);
+            var minusTwoDay = dateAsObject
             minusTwoDay.setDate(minusTwoDay.getDate()-2);
             var plusOneDay = currentDay;
             plusOneDay.setDate(plusOneDay.getDate()+1);
             var plusTwoDay = currentDay;
-            plusTwoDay.setDate(plusTwoDay.getDate()+1);
+            plusTwoDay.setDate(plusTwoDay.getDate()+1);*/
             fetchScores(currentDay,0);
             console.log(dateAsObject);
 
@@ -112,12 +112,12 @@
                 plusTwoDay
             ];
 
-            document.getElementById('CalendarDays').innerHTML = "";
+            /*document.getElementById('CalendarDays').innerHTML = "";
 
             for (var iCount = 0; iCount < days.length; iCount++)
             {
                 AddCalendarItem(days[iCount],1);
-            }
+            }*/
 
 
             function AddCalendarItem(day, adjuster) {
