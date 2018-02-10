@@ -69,10 +69,8 @@ function renderGame(content) {
     var home = content.homeTeam;
     var away = content.awayTeam;
 
-    var side = ''
-
     document.querySelector(".score-grid").innerHTML +=
-        "<div class="+ side +">" +
+        "<div class=\"score-child\">" +
         "            <table id="+content.id +" class=\"table is-narrow no-border box\">\n" +
         "                <thead class=\"no-border\">\n" +
         "                <tr>\n" +

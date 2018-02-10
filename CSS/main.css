@@ -247,14 +247,15 @@ footer a i{
         width: 100%;
     }
 
-
-    .score-right {
-        margin-right: auto;
-    }
-
-    .score-left {
+    .score-child:nth-child(odd) {
         margin-left: auto;
     }
+
+
+    .score-child:nth-child(even) {
+        marign-right: auto;
+    }
+
 
     td {
         font-size: 15px; !important;
