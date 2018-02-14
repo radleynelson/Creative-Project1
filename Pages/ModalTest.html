@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+    <title>Rad's Sports Network</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/bulma.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../CSS/menu.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/main.css">
+    <script src="../javascript/jquery-3.3.1.min.js"></script>
+    <script src="../javascript/apiCall.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
+    <title>Modal Test</title>
+  </head>
+
+  <body>
+  <style>
+      .box-Score-Container{
+          display: flex;
+          justify-content: flex-start;
+      }
+      .team-Abbr{
+          font-size: 32px;
+          padding-left: 10px;
+      }
+
+      .team-record{
+          padding-top: 0;
+      }
+
+      .right-boxscore-team{
+          margin-left: auto;
+      }
+      .game-Status{
+          margin-left: auto;
+          margin-right: auto;
+      }
+
+      .team-header{
+          text-align: left;
+      }
+
+      @media screen and (max-width: 667px) {
+          .team-Abbr {
+              font-size: 25px;
+          }
+      }
+  </style>
+
+    <section id="Navigation">
+        <nav>
+            <ul>
+                <li class="RSPN">
+                    <a href="../index.html">RSPN</a>
+                </li>
+                <li>
+                    <a href="../index.html">Home</a>
+                </li>
+                <li>
+                    <a href="Scores.html">Scores</a>
+                </li>
+                <li>
+                    <a href="News.html">News</a>
+                </li>
+                <li>
+                    <a href="About.html">About</a>
+                </li>
+                <li class="right">
+                    <a href="Sign-In.html"><i class="fa fa-user-circle icons" aria-hidden="true"></i></a>
+                </li>
+            </ul>
+        </nav>
+    </section>
+
+    <div class="card">
+      <div class="card-content content-wrapper">
+        <div class="box-Score-Container">
+            <div>
+                <p><img class="is-64x64" src="../IMG/UTA.png"></p>
+            </div>
+            <div>
+                <p class="team-Abbr">UTA</p>
+                <p class="team-record">28-29</p>
+            </div>
+
+            <div>
+                <p>
+                    <strong class="team-Abbr">120</strong>
+                </p>
+            </div>
+            <div class="game-Status">Final</div>
+
+            <div class="right-boxscore-team">
+                <p class="team-Abbr">POR</p>
+                <p class="team-record">28-29</p>
+            </div>
+
+            <div>
+                <p>
+                    <strong class="team-Abbr">110</strong>
+                </p>
+            </div>
+            <div>
+                <p><img class="is-64x64" src="../IMG/POR.png"></p>
+            </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="box">
+      <div class="title is-left team-header">
+          Utah Jazz
+      </div>
+      <div>
+          <div class="content">
+              <table class="table is-narrow is-striped">
+                  <thead>
+                  <tr>
+                      <th>#</th>
+                      <th>Name</th>
+                      <th>MIN</th>
+                      <th>FG</th>
+                      <th>REB</th>
+                      <th>AST</th>
+                      <th>PTS</th>
+
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                      <td>45</td>
+                      <td>Mitchell</td>
+                      <td>31</td>
+                      <td>12-19</td>
+                      <td>6</td>
+                      <td>8</td>
+                      <td>40</td>
+
+                  </tr>
+                  <tr>
+                      <td>2</td>
+                      <td>Ingles</td>
+                      <td>30</td>
+                      <td>5-9</td>
+                      <td>5</td>
+                      <td>6</td>
+                      <td>20</td>
+                  </tr>
+                  <tr>
+                      <td>27</td>
+                      <td>Gobert</td>
+                      <td>28</td>
+                      <td>5-6</td>
+                      <td>13</td>
+                      <td>3</td>
+                      <td>17</td>
+                  </tr>
+                  <tr>
+                      <td>3</td>
+                      <td>Rubio</td>
+                      <td>28</td>
+                      <td>5-10</td>
+                      <td>7</td>
+                      <td>12</td>
+                      <td>18</td>
+                  </tr>
+                  <tr>
+                      <td>3</td>
+                      <td>Rubio</td>
+                      <td>28</td>
+                      <td>5-10</td>
+                      <td>7</td>
+                      <td>12</td>
+                      <td>18</td>
+                  </tr>
+                  <tr>
+                      <td>3</td>
+                      <td>Rubio</td>
+                      <td>28</td>
+                      <td>5-10</td>
+                      <td>7</td>
+                      <td>12</td>
+                      <td>18</td>
+                  </tr>
+                  <tr>
+                      <td>3</td>
+                      <td>Rubio</td>
+                      <td>28</td>
+                      <td>5-10</td>
+                      <td>7</td>
+                      <td>12</td>
+                      <td>18</td>
+                  </tr>
+                  <tr>
+                      <td>3</td>
+                      <td>Rubio</td>
+                      <td>28</td>
+                      <td>5-10</td>
+                      <td>7</td>
+                      <td>12</td>
+                      <td>18</td>
+                  </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+
+      <div class="title is-left team-header">
+          Utah Jazz
+      </div>
+      <div>
+          <div class="content">
+              <table class="table is-narrow is-striped">
+                  <thead>
+                  <tr>
+                      <th>#</th>
+                      <th>Name</th>
+                      <th>MIN</th>
+                      <th>FG</th>
+                      <th>REB</th>
+                      <th>AST</th>
+                      <th>PTS</th>
+
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                      <td>45</td>
+                      <td>Mitchell</td>
+                      <td>31</td>
+                      <td>12-19</td>
+                      <td>6</td>
+                      <td>8</td>
+                      <td>40</td>
+
+                  </tr>
+                  <tr>
+                      <td>2</td>
+                      <td>Ingles</td>
+                      <td>30</td>
+                      <td>5-9</td>
+                      <td>5</td>
+                      <td>6</td>
+                      <td>20</td>
+                  </tr>
+                  <tr>
+                      <td>27</td>
+                      <td>Gobert</td>
+                      <td>28</td>
+                      <td>5-6</td>
+                      <td>13</td>
+                      <td>3</td>
+                      <td>17</td>
+                  </tr>
+                  <tr>
+                      <td>3</td>
+                      <td>Rubio</td>
+                      <td>28</td>
+                      <td>5-10</td>
+                      <td>7</td>
+                      <td>12</td>
+                      <td>18</td>
+                  </tr>
+                  <tr>
+                      <td>3</td>
+                      <td>Rubio</td>
+                      <td>28</td>
+                      <td>5-10</td>
+                      <td>7</td>
+                      <td>12</td>
+                      <td>18</td>
+                  </tr>
+                  <tr>
+                      <td>3</td>
+                      <td>Rubio</td>
+                      <td>28</td>
+                      <td>5-10</td>
+                      <td>7</td>
+                      <td>12</td>
+                      <td>18</td>
+                  </tr>
+                  <tr>
+                      <td>3</td>
+                      <td>Rubio</td>
+                      <td>28</td>
+                      <td>5-10</td>
+                      <td>7</td>
+                      <td>12</td>
+                      <td>18</td>
+                  </tr>
+                  <tr>
+                      <td>3</td>
+                      <td>Rubio</td>
+                      <td>28</td>
+                      <td>5-10</td>
+                      <td>7</td>
+                      <td>12</td>
+                      <td>18</td>
+                  </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
+
+    <div class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <!-- Any other Bulma elements you want -->
+      <div>
+        test
+      </div>
+    </div>
+    <button class="modal-close"></button>
+  </div>
+
+  <br /><br /><br />
+  <p>
+    <button class="button" id="showModal">Show</button>
+  </p>
+  <script src="../javascript/modal.js"></script>
+  </body>
+</html>
