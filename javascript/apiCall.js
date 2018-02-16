@@ -1,3 +1,13 @@
+//Date Picker
+
+
+
+
+
+//REst of it
+
+
+
 function setCalendar() {
     document.getElementById("two-days-ago").innerText = "<a href=\"javascript:fetchScores(today, -2)\"><div class=\"column card date\" id=\"two-days-ago\">Tue <p>2/6</p></div></a>";
 }
@@ -241,16 +251,24 @@ function formatGameData(data) {
     }
 }
 
-function renderGame(content) {
+function renderGame(content,leftRight) {
     //put all the html stuff in here
     var home = content.homeTeam;
     var away = content.awayTeam;
+    var scoreSide;
+
+    if (leftRight == 0 || leftRight % 2 == 0){
+      scoreSide = "score-left";
+    }
+    else{
+      scoreSide = "score-right";
+    }
 
     var gameStatus = content.isUnplayed;
 
     document.querySelector(".score-grid").innerHTML +=
-        "<div label="+gameStatus+" class=\"score-child showModal\">" +
-        "            <table id=" + content.id + " class=\"table is-narrow no-border box\">\n" +
+        "<div label="+gameStatus+" class=\"score-child " + scoreSide + " showModal card margin-inherit\">" +
+        "            <table id=" + content.id + " class=\"table is-narrow no-border\">\n" +
         "                <thead class=\"no-border\">\n" +
         renderQuartersHeader(home.quarters.length, content.status) +
         "                </thead>\n" +
@@ -278,7 +296,7 @@ function renderGame(content) {
         "                    <th>"+home.total + "</th>\n" +
         "                </tr>\n" +
         "                </tbody>\n" +
-        "            </table>\n" +
+        "            </table>\n" + "<div class='has-text-centered'><button class='button is-outlined is-info'>Box-Score</button></div>" +
         "        </div>";
 }
 
@@ -589,6 +607,9 @@ function RenderBoxScore(box,gameInfo, homeRecord, awayRecord){
 function fetchScores(date,adjuster){
     var dateForApi = formatDateForApi(date, adjuster);
     var standings;
+    var currentDay = date;
+    document.getElementById("dateScores").innerHTML = "Scores For " + date.toDateString();
+
     // makes an api call
     $.ajax({
         headers: {
@@ -599,11 +620,12 @@ function fetchScores(date,adjuster){
         success: function(data){
 
             clearHtml();
-
             var games = data.scoreboard.gameScore;
+            var counter = 0;
             games.forEach(function(game) {
                 var gameData = formatGameData(game)
-                renderGame(gameData)
+                renderGame(gameData,counter)
+                counter++;
             })
             var standings;
             $.ajax({
@@ -755,5 +777,129 @@ function fetchScores(date,adjuster){
 
 
 $(document).ready(function(){
+  var today = new Date();
+  var yesterDay = today.getDate()-1;
+  fetchScores(today, 0);
+  $( function() {
+      $( "#datepicker" ).datepicker({
+          showOn: "both",
+          buttonText: "<i class='fa fa-calendar'></i>"
 
+      });
+  } );
+
+
+
+  $("#datepicker").datepicker({
+      onSelect: function(dateText, inst) {
+          var dateAsObject = $(this).datepicker( 'getDate' ); //the getDate method
+          console.log(dateAsObject);
+          var currentDay = new Date(dateText);
+          fetchScores(currentDay,0);
+
+      }
+  });
+
+  $(document).ready(function() {
+      $("#datepicker").datepicker();
+      $('.fa-calendar').click(function() {
+          $("#datepicker").show().focus().hide();
+
+      });
+
+      // var minusOneDay = new Date();
+      // var minusTwoDay = new Date();
+      // var plusOneDay = new Date();
+      // var plusTwoDay = new Date();
+      // minusOneDay.setDate(date.getDate()-1);
+      // minusTwoDay.setDate(date.getDate()-2);
+      // plusOneDay.setDate(date.getDate()+1);
+      // plusTwoDay.setDate(date.getDate()+2);
+      //
+      // var days = [
+      //     minusTwoDay,
+      //     minusOneDay,
+      //     currentDay,
+      //     plusOneDay,
+      //     plusTwoDay
+      // ];
+      //
+      // document.getElementById('CalendarDays').innerHTML = "";
+      //
+      // for (var iCount = 0; iCount < days.length; iCount++)
+      // {
+      //     AddCalendarItem(days[iCount],1);
+      // }
+  });
 });
+
+function AddCalendarItem(day, adjuster) {
+    var Weekday;
+    var month = day.getMonth() + 1;
+    var dayNum = day.getDate() + 1;
+    if (day.getDay() === 0)
+    {
+        Weekday = "Sun";
+    }
+    else if(day.getDay() === 1)
+    {
+        Weekday = "Mon";
+    }
+    else if(day.getDay()===2)
+    {
+        Weekday = "Tue";
+    }
+    else if(day.getDay()===3)
+    {
+        Weekday = "Wed";
+    }
+    else if(day.getDay()===4)
+    {
+        Weekday = "Thur";
+    }
+    else if(day.getDay() ===5)
+    {
+        Weekday = "Fri";
+    }
+    else
+    {
+        Weekday = "Sat";
+    }
+    document.getElementById("CalendarDays").innerHTML+=
+        "<a href=\"javascript:fetchScores(today, 0)\"><div class=\"column card date\">" +Weekday + "<p>"+month+ "/" +dayNum + "</p></div></a>";
+}
+
+function GetCalendarItem(day, adjuster) {
+    var Weekday;
+    var month = day.getMonth() + 1;
+    var dayNum = day.getDate() + 1;
+    if (day.getDay() === 0)
+    {
+        Weekday = "Sun";
+    }
+    else if(day.getDay() === 1)
+    {
+        Weekday = "Mon";
+    }
+    else if(day.getDay()===2)
+    {
+        Weekday = "Tue";
+    }
+    else if(day.getDay()===3)
+    {
+        Weekday = "Wed";
+    }
+    else if(day.getDay()===4)
+    {
+        Weekday = "Thur";
+    }
+    else if(day.getDay() ===5)
+    {
+        Weekday = "Fri";
+    }
+    else
+    {
+        Weekday = "Sat";
+    }
+    return Weekday + "<p>"+month+ "/" +dayNum + "</p>";
+}

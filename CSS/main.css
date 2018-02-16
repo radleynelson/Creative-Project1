@@ -145,7 +145,16 @@ section{
 .score-child{
     max-width: 380px;
     min-width: 380px;
+    height: 189px;
 
+}
+
+.margin-inherit{
+  margin: inherit;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 25px;
+  position: relative;
 }
 
 .dates{
@@ -281,16 +290,33 @@ footer a i{
         grid-column-gap: 15px;
         width: 100%;
     }
+.today-red{
+  color: red;
+}
 
-    .score-child:nth-child(odd) {
+#dateScores{
+  font-size: 20px;
+  padding-bottom: 25px;
+  text-align: center;
+}
+
+
+    /*.score-child:nth-child(odd) {
         margin-left: auto;
     }
 
 
     .score-child:nth-child(even) {
-        marign-right: auto;
+        margin-right: auto;
+    }*/
+
+    .score-left{
+      margin-left: auto;
     }
 
+    .score-right{
+      margin-right: auto;
+    }
 
     td {
         font-size: 15px; !important;

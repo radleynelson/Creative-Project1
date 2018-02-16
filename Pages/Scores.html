@@ -8,6 +8,11 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../CSS/menu.css">
     <link rel="stylesheet" type="text/css" href="../CSS/main.css">
+    <script src="../javascript/jquery-3.3.1.min.js"></script>
+    <script src="../javascript/apiCall.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
+
 
 </head>
 <body>
@@ -36,423 +41,135 @@
     </nav>
 </section>
 
+
 <section>
     <div class="is-centered">
         <h1 class="title has-text-centered is-1">
-            Scores
+            NBA Scoreboard
         </h1>
     </div>
 </section>
 
 <section>
-    <div class="score-grid">
-        <div class="score-left score-child">
-            <table class="table is-narrow no-border box">
-                <thead class="no-border">
-                <tr>
-                    <th>Final</th>
-                    <th></th>
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th></th>
-                    <th>T</th>
+    <div class="is-centered">
+        <div id="CalendarDays" class="has-text-centered columns is-flex-mobile has-text-centered dates">
+            <p>&nbsp;&nbsp;</p>
+            <a href="javascript:fetchScores(today, -2)"><div class="column card date" id="twodaysago">Tue <p>2/6</p></div></a>
+            <a href="javascript:fetchScores(today, -1)"><div class="column card date" id="yesterday">Wed <p>2/7</p></div></a>
+            <a href="javascript:fetchScores(today, 0)"><div class="column card date today-red" id="today">Thur <p>2/8</p></div></a>
+            <a href="javascript:fetchScores(today, 1)"><div class="column card date" id="tomorrow">Fri <p>2/9</p></div></a>
+            <a href="javascript:fetchScores(today, 2)"><div class="column card date" id="twodaysahead">Sat <p>2/10</p></div></a>
+            <p class="has-text-centered">&nbsp; &nbsp;<input type="text" hidden="hidden" id="datepicker"><i class='fa fa-calendar fa-2x'></i></p>
 
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>
-                        <img class="icon" src="../IMG/warriors_logo.png">
-                    </td>
-                    <td class="is-bold">
-                        <strong class="is-bold">Warriors</strong>
-                        <!--<span class="is-italic"><br>(40-10)</span>-->
-                    </td>
-                    <td>30</td>
-                    <td>23</td>
-                    <td>20</td>
-                    <td>32</td>
-                    <td></td>
-                    <th>105</th>
-                </tr>
-                <tr>
-                    <td>
-                        <img class="icon" src="../IMG/jazz_logo.png">
-                    </td>
-                    <td class="is-bold">
-                        <strong class="is-bold">Jazz</strong>
-                        <!--<span class="is-italic"><br>(40-10)</span>-->
-                    </td>
-                    <td>25</td>
-                    <td>15</td>
-                    <td>30</td>
-                    <td>37</td>
-                    <td></td>
-                    <th>107</th>
-                </tr>
-                </tbody>
-            </table>
         </div>
 
-        <div class="score-right score-child">
-            <table class="table is-narrow no-border box">
-                <thead class="no-border">
-                <tr>
-                    <th>Final</th>
-                    <th></th>
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th></th>
-                    <th>T</th>
 
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>
-                        <img class="icon" src="../IMG/milwaukee-bucks-logo-vector.png">
-                    </td>
-                    <td class="is-bold">
-                        <strong class="is-bold">Bucks</strong>
-                        <!--<span class="is-italic"><br>(40-10)</span>-->
-                    </td>
-                    <td>28</td>
-                    <td>22</td>
-                    <td>34</td>
-                    <td>20</td>
-                    <td></td>
-                    <th>104</th>
-                </tr>
-                <tr>
-                    <td>
-                        <img class="icon" src="../IMG/portland-trail-blazers-logo-vector.png">
-                    </td>
-                    <td class="is-bold">
-                        <strong class="is-bold">Blazers</strong>
-                        <!--<span class="is-italic"><br>(40-10)</span>-->
-                    </td>
-                    <td>20</td>
-                    <td>22</td>
-                    <td>20</td>
-                    <td>17</td>
-                    <td></td>
-                    <th>79</th>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <div class="score-grid">
-        <div class="score-left score-child">
-            <table class="table is-narrow no-border box">
-                <thead class="no-border">
-                <tr>
-                    <th>Final</th>
-                    <th></th>
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th></th>
-                    <th>T</th>
-
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>
-                        <img class="icon" src="../IMG/oklahoma-city-thunder-logo-vector.png">
-                    </td>
-                    <td class="is-bold">
-                        <strong class="is-bold">Thunder</strong>
-                        <!--<span class="is-italic"><br>(40-10)</span>-->
-                    </td>
-                    <td>30</td>
-                    <td>28</td>
-                    <td>22</td>
-                    <td>20</td>
-                    <td></td>
-                    <th>100</th>
-                </tr>
-                <tr>
-                    <td>
-                        <img class="icon" src="../IMG/cleveland-cavaliers-logo-vector.png">
-                    </td>
-                    <td class="is-bold">
-                        <strong class="is-bold">Cavs</strong>
-                        <!--<span class="is-italic"><br>(40-10)</span>-->
-                    </td>
-                    <td>20</td>
-                    <td>22</td>
-                    <td>21</td>
-                    <td>30</td>
-                    <td></td>
-                    <th>93</th>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="score-right score-child">
-            <table class="table is-narrow no-border box">
-                <thead class="no-border">
-                <tr>
-                    <th>Final</th>
-                    <th></th>
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th></th>
-                    <th>T</th>
-
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>
-                        <img class="icon" src="../IMG/dallas-mavericks-logo-vector.png">
-                    </td>
-                    <td class="is-bold">
-                        <strong class="is-bold">Mavs</strong>
-                        <!--<span class="is-italic"><br>(40-10)</span>-->
-                    </td>
-                    <td>15</td>
-                    <td>25</td>
-                    <td>27</td>
-                    <td>22</td>
-                    <td></td>
-                    <th>89</th>
-                </tr>
-                <tr>
-                    <td>
-                        <img class="icon" src="../IMG/toronto-raptors-logo-vector.png">
-                    </td>
-                    <td class="is-bold">
-                        <strong class="is-bold">Raptors</strong>
-                        <!--<span class="is-italic"><br>(40-10)</span>-->
-                    </td>
-                    <td>25</td>
-                    <td>20</td>
-                    <td>35</td>
-                    <td>35</td>
-                    <td></td>
-                    <th>115</th>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <div class="score-grid">
-        <div class="score-left score-child">
-            <table class="table is-narrow no-border box">
-                <thead class="no-border">
-                <tr>
-                    <th>Final</th>
-                    <th></th>
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th></th>
-                    <th>T</th>
-
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>
-                        <img class="icon" src="../IMG/phoenix-suns-logo-vector.png">
-                    </td>
-                    <td class="is-bold">
-                        <strong class="is-bold">Suns</strong>
-                        <!--<span class="is-italic"><br>(40-10)</span>-->
-                    </td>
-                    <td>22</td>
-                    <td>23</td>
-                    <td>27</td>
-                    <td>25</td>
-                    <td></td>
-                    <th>97</th>
-                </tr>
-                <tr>
-                    <td>
-                        <img class="icon" src="../IMG/sacramento-kings-logo-vector.png">
-                    </td>
-                    <td class="is-bold">
-                        <strong class="is-bold">Kings</strong>
-                        <!--<span class="is-italic"><br>(40-10)</span>-->
-                    </td>
-                    <td>20</td>
-                    <td>20</td>
-                    <td>25</td>
-                    <td>15</td>
-                    <td></td>
-                    <th>80</th>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="score-right score-child">
-            <table class="table is-narrow no-border box">
-                <thead class="no-border">
-                <tr>
-                    <th>Final</th>
-                    <th></th>
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th></th>
-                    <th>T</th>
-
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>
-                        <img class="icon" src="../IMG/atlanta-hawks-logo-vector.png">
-                    </td>
-                    <td class="is-bold">
-                        <strong class="is-bold">Hawks</strong>
-                        <!--<span class="is-italic"><br>(40-10)</span>-->
-                    </td>
-                    <td>10</td>
-                    <td>40</td>
-                    <td>30</td>
-                    <td>20</td>
-                    <td></td>
-                    <th>100</th>
-                </tr>
-                <tr>
-                    <td>
-                        <img class="icon" src="../IMG/brooklyn-nets-logo-vector.png">
-                    </td>
-                    <td class="is-bold">
-                        <strong class="is-bold">Nets</strong>
-                        <!--<span class="is-italic"><br>(40-10)</span>-->
-                    </td>
-                    <td>25</td>
-                    <td>20</td>
-                    <td>30</td>
-                    <td>35</td>
-                    <td></td>
-                    <th>110</th>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <div class="score-grid">
-        <div class="score-left score-child">
-            <table class="table is-narrow no-border box">
-                <thead class="no-border">
-                <tr>
-                    <th>Final</th>
-                    <th></th>
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th></th>
-                    <th>T</th>
-
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>
-                        <img class="icon" src="../IMG/miami-heat-logo-vector.png">
-                    </td>
-                    <td class="is-bold">
-                        <strong class="is-bold">Heat</strong>
-                        <!--<span class="is-italic"><br>(40-10)</span>-->
-                    </td>
-                    <td>33</td>
-                    <td>30</td>
-                    <td>27</td>
-                    <td>25</td>
-                    <td></td>
-                    <th>115</th>
-                </tr>
-                <tr>
-                    <td>
-                        <img class="icon" src="../IMG/boston-celtics-logo-vector.png">
-                    </td>
-                    <td class="is-bold">
-                        <strong class="is-bold">Celtics</strong>
-                        <!--<span class="is-italic"><br>(40-10)</span>-->
-                    </td>
-                    <td>25</td>
-                    <td>20</td>
-                    <td>30</td>
-                    <td>35</td>
-                    <td></td>
-                    <th>110</th>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="score-right score-child">
-            <table class="table is-narrow no-border box">
-                <thead class="no-border">
-                <tr>
-                    <th>Final</th>
-                    <th></th>
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th></th>
-                    <th>T</th>
-
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>
-                        <img class="icon" src="../IMG/san-antonio-spurs-logo-vector.png">
-                    </td>
-                    <td class="is-bold">
-                        <strong class="is-bold">Spurs</strong>
-                        <!--<span class="is-italic"><br>(40-10)</span>-->
-                    </td>
-                    <td>25</td>
-                    <td>23</td>
-                    <td>25</td>
-                    <td>24</td>
-                    <td></td>
-                    <th>97</th>
-                </tr>
-                <tr>
-                    <td>
-                        <img class="icon" src="../IMG/orlando-magic-logo-vector.png">
-                    </td>
-                    <td class="is-bold">
-                        <strong class="is-bold">Magic</strong>
-                        <!--<span class="is-italic"><br>(40-10)</span>-->
-                    </td>
-                    <td>25</td>
-                    <td>30</td>
-                    <td>30</td>
-                    <td>35</td>
-                    <td></td>
-                    <th>120</th>
-                </tr>
-                </tbody>
-            </table>
-        </div>
     </div>
 </section>
+<div>
+  <p id ="dateScores">
+
+  </p>
+</div>
+<section>
+    <div class="score-grid">
+
+    </div>
+</section>
+
+<div class="modal">
+<div class="modal-background"></div>
+<div class="modal-content">
+  <!-- Any other Bulma elements you want -->
+  <section id="gameBoxScore">
+      <div class="card">
+          <div class="card-content content-wrapper">
+              <div class="box-Score-Container">
+                  <div>
+                      <p id = "home-team-image"><img class="is-64x64" src=""></p>
+                  </div>
+                  <div>
+                      <p id="home-abr" class="team-Abbr"></p>
+                      <p id = "home-record" class="team-record"></p>
+                  </div>
+
+                  <div>
+                      <p>
+                          <strong id="home-game-score" class="team-Abbr"></strong>
+                      </p>
+                  </div>
+                  <div class="game-Status"></div>
+
+                  <div class="right-boxscore-team">
+                      <p id="away-abr" class="team-Abbr"></p>
+                      <p id="away-record" class="team-record"></p>
+                  </div>
+
+                  <div>
+                      <p>
+                          <strong id="away-game-score" class="team-Abbr"></strong>
+                      </p>
+                  </div>
+                  <div>
+                      <p id = "away-team-image"><img class="is-64x64" src=""></p>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="box">
+          <div id="HomeHeader" class="title is-left team-header">
+          </div>
+          <div>
+              <div class="content row">
+                  <table class="table is-narrow is-striped">
+                      <thead>
+                      <tr>
+                          <th>P</th>
+                          <th>Name</th>
+                          <th>MIN</th>
+                          <th>FG</th>
+                          <th>REB</th>
+                          <th>AST</th>
+                          <th>PTS</th>
+
+                      </tr>
+                      </thead>
+                      <tbody id = "hPlayers">
+
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+
+          <div id="AwayHeader" class="title is-left team-header">
+          </div>
+          <div>
+              <div class="content row">
+                  <table class="table is-narrow is-striped">
+                      <thead>
+                      <tr>
+                          <th>P</th>
+                          <th>Name</th>
+                          <th>MIN</th>
+                          <th>FG</th>
+                          <th>REB</th>
+                          <th>AST</th>
+                          <th>PTS</th>
+
+                      </tr>
+                      </thead>
+                      <tbody id="aPlayers">
+
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+  </section>
+</div>
+<button class="modal-close"></button>
+</div>
 
 <footer class="footer">
     <div class="container">
@@ -484,17 +201,36 @@
     </div>
 </footer>
 
-</body>
-
-</html>
-<!--
-Twitter attempt to resize
 <script>
-    change = document.getElementsByTagName("TWITTERWIDGET");
+var today = new Date();
+var minusOneDay = new Date();
+var minusTwoDay = new Date();
+var plusOneDay = new Date();
+var plusTwoDay = new Date();
+var currentDay = new Date();
+minusOneDay.setDate(currentDay.getDate()-1);
+minusTwoDay.setDate(currentDay.getDate()-2);
+plusOneDay.setDate(currentDay.getDate()+1);
+plusTwoDay.setDate(currentDay.getDate()+2);
 
-    for (var iCount = 0; iCount < change.length; iCount++)
-    {
-        //change[iCount].style.width = "100%";
-        document.getElementById("twitter-widget-" +iCount).style.width="100%";
+document.getElementById("twodaysago").innerHTML = GetCalendarItem(minusTwoDay,0);
+document.getElementById("yesterday").innerHTML = GetCalendarItem(minusOneDay,0);
+document.getElementById("today").innerHTML = GetCalendarItem(currentDay,0);
+document.getElementById("tomorrow").innerHTML = GetCalendarItem(plusOneDay,0);
+document.getElementById("twodaysahead").innerHTML = GetCalendarItem(plusTwoDay,0);
+
+</script>
+<script>
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+
+<script>
+    function ComingSoon() {
+        window.alert("More posts coming soon and once I add in a back end you will be able to scroll through all NBA headlines.")
     }
-</script>-->
+</script>
+
+</body>
+</html>
