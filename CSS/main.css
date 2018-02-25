@@ -7,11 +7,38 @@ p{
     padding-top: 20px;
 }
 
+th{
+  text-decoration: none;
+}
+
+.table td.is-selected, .table th.is-selected {
+    background-color: lightgray;
+    color: black;
+}
+
+.left-align{
+  text-align: left;
+}
 
 .content-wrapper {
     padding: 20px;
     margin: auto;
     width: 80%;
+}
+
+.standings-wrapper {
+    padding: 20px;
+    margin: auto;
+    overflow-x:auto;
+    width: 80%;
+}
+
+.playOff-CutOff{
+  border-bottom: solid #4a4a4a;
+}
+
+.static-icon{
+  min-width: 24px;
 }
 
 .row {
@@ -335,6 +362,13 @@ footer a i{
 
 
 
+}
+
+@media screen and (max-width: 892px){
+  .standings-wrapper {
+      margin: auto;
+      width: 100%;
+  }
 }
 
 @media screen and (max-width: 759px) {

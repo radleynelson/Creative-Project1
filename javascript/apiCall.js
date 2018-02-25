@@ -135,7 +135,7 @@ function getInProgressInfo(game){
     {
         gameStatus += "-4th";
     }
-    else if(game.scoreboard.gameScore[iCount].quarterSummary.quarter.length === 5)
+    else if(game.quarterSummary.quarter.length === 5)
     {
         gameStatus += "-OT";
     }
@@ -267,7 +267,7 @@ function renderGame(content,leftRight) {
     var gameStatus = content.isUnplayed;
 
     document.querySelector(".score-grid").innerHTML +=
-        "<div label="+gameStatus+" class=\"score-child " + scoreSide + " showModal card margin-inherit\">" +
+        "<div label="+gameStatus+" class=\"score-child " + scoreSide + " showModal box margin-inherit\">" +
         "            <table id=" + content.id + " class=\"table is-narrow no-border\">\n" +
         "                <thead class=\"no-border\">\n" +
         renderQuartersHeader(home.quarters.length, content.status) +
@@ -609,7 +609,7 @@ function fetchScores(date,adjuster){
     var standings;
     var currentDay = date;
     document.getElementById("dateScores").innerHTML = "Scores For " + date.toDateString();
-
+    clearHtml();
     // makes an api call
     $.ajax({
         headers: {
@@ -622,11 +622,17 @@ function fetchScores(date,adjuster){
             clearHtml();
             var games = data.scoreboard.gameScore;
             var counter = 0;
-            games.forEach(function(game) {
-                var gameData = formatGameData(game)
-                renderGame(gameData,counter)
-                counter++;
-            })
+            if(games!= undefined){
+              games.forEach(function(game) {
+                  var gameData = formatGameData(game)
+                  renderGame(gameData,counter)
+                  counter++;
+              });
+            }
+            else{
+              document.getElementById('dateScores').innerHTML += "<br><br>No Games Played on this date."
+            }
+
             var standings;
             $.ajax({
               headers:{
@@ -643,7 +649,6 @@ function fetchScores(date,adjuster){
 
             $('.showModal').click(function(event) {
             event.preventDefault();
-
             var div = this;
             var isUnplayed = div.getAttribute("label");
             console.log(div);
@@ -795,6 +800,7 @@ $(document).ready(function(){
           var dateAsObject = $(this).datepicker( 'getDate' ); //the getDate method
           console.log(dateAsObject);
           var currentDay = new Date(dateText);
+          clearHtml();
           fetchScores(currentDay,0);
 
       }
@@ -872,7 +878,7 @@ function AddCalendarItem(day, adjuster) {
 function GetCalendarItem(day, adjuster) {
     var Weekday;
     var month = day.getMonth() + 1;
-    var dayNum = day.getDate() + 1;
+    var dayNum = day.getDate();
     if (day.getDay() === 0)
     {
         Weekday = "Sun";

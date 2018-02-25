@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RSPN NBA Standings</title>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+<link rel="stylesheet" type="text/css" href="../CSS/bulma.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../CSS/menu.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/main.css">
+    <script src="../javascript/jquery-3.3.1.min.js"></script>
+    <script src="../javascript/standings.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
+
+
+</head>
+<body>
+<section>
+    <nav>
+        <ul>
+            <li class="RSPN">
+                <a href="../index.html">RSPN</a>
+            </li>
+            <li>
+                <a href="../index.html">Home</a>
+            </li>
+            <li>
+                <a href="Scores.html">Scores</a>
+            </li>
+            <li>
+                <a href="News.html">News</a>
+            </li>
+            <li>
+                <a href="About.html">About</a>
+            </li>
+            <li class="right">
+                <a href="Sign-In.html"><i class="fa fa-user-circle icons" aria-hidden="true"></i></a>
+            </li>
+        </ul>
+    </nav>
+</section>
+
+
+<section>
+    <div class="is-centered">
+        <h1 class="title has-text-centered is-1">
+            NBA Standigs
+        </h1>
+    </div>
+</section>
+<section>
+  <div class="box standings-wrapper has-text-centered">
+    <h1 class="title is-5 left-align">Wester Conference standings</h1>
+    <table class="table">
+  <thead>
+    <tr>
+      <th><abbr title="Position">Pos</abbr></th>
+      <th></th>
+      <th>Team</th>
+      <th><abbr title="Total Games Played">GP</abbr></th>
+      <th><abbr title="Won">W</abbr></th>
+      <th><abbr title="Lost">L</abbr></th>
+      <th><abbr title="Pct">Pct</abbr></th>
+      <th><abbr title="Games Back">GB</abbr></th>
+      <th><abbr title="PPG">PPG</abbr></th>
+      <th><abbr title="Opp PPG">OPP-PPG</abbr></th>
+      <th><abbr title="Point Differential Per Game">+-</abbr></th>
+      <th><abbr title="Field Goal Percentage">FgPct</abbr></th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <th><abbr title="Position">Pos</abbr></th>
+      <th></th>
+      <th>Team</th>
+      <th><abbr title="Total Games Played">GP</abbr></th>
+      <th><abbr title="Won">W</abbr></th>
+      <th><abbr title="Lost">L</abbr></th>
+      <th><abbr title="Pct">Pct</abbr></th>
+      <th><abbr title="Games BAck">GB</abbr></th>
+      <th><abbr title="PPG">PPG</abbr></th>
+      <th><abbr title="Opp PPG">Opp-PPG</abbr></th>
+      <th><abbr title="Point Differential Per Game">+-</abbr></th>
+      <th><abbr title="Field Goal Percentage">FgPct</abbr></th>
+    </tr>
+  </tfoot>
+  <tbody id="westerConferenceStandings">
+  </tbody>
+</table>
+  </div>
+  <div class="box standings-wrapper has-text-centered">
+    <h1 class="title is-5 left-align">Eastern Conference standings</h1>
+    <table class="table">
+  <thead>
+    <tr>
+      <th><abbr title="Playoff Seed">Pos</abbr></th>
+      <th></th>
+      <th>Team</th>
+      <th><abbr title="Total Games Played">GP</abbr></th>
+      <th><abbr title="Won">W</abbr></th>
+      <th><abbr title="Lost">L</abbr></th>
+      <th><abbr title="Pct">Pct</abbr></th>
+      <th><abbr title="Games Back">GB</abbr></th>
+      <th><abbr title="PPG">PPG</abbr></th>
+      <th><abbr title="Opp PPG">OPP-PPG</abbr></th>
+      <th><abbr title="Point Differential Per Game">+-</abbr></th>
+      <th><abbr title="Field Goal Percentage">FgPct</abbr></th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <th><abbr title="Position">Pos</abbr></th>
+      <th></th>
+      <th>Team</th>
+      <th><abbr title="Total Games Played">GP</abbr></th>
+      <th><abbr title="Won">W</abbr></th>
+      <th><abbr title="Lost">L</abbr></th>
+      <th><abbr title="Pct">Pct</abbr></th>
+      <th><abbr title="Games BAck">GB</abbr></th>
+      <th><abbr title="PPG">PPG</abbr></th>
+      <th><abbr title="Opp PPG">Opp-PPG</abbr></th>
+      <th><abbr title="Point Differential Per Game">+-</abbr></th>
+      <th><abbr title="Field Goal Percentage">FgPct</abbr></th>
+    </tr>
+  </tfoot>
+  <tbody id="easterConferenceStandings">
+  </tbody>
+</table>
+  </div>
+</section>
+  </head>
+  <body>
+
+  </body>
+</html>
